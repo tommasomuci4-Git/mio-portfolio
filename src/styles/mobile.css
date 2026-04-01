@@ -1,0 +1,300 @@
+/* ============================================================
+   MOBILE.CSS — Ottimizzazioni specifiche per mobile
+   Caricato per ultimo in main.js — ha la priorità massima.
+   Focus: touch targets, leggibilità, spacing, iOS quirks.
+   ============================================================ */
+
+/* ─── iOS: previeni zoom automatico sugli input (font-size < 16px) ─── */
+input, textarea, select {
+  font-size: 16px !important;  /* iOS zooma se < 16px */
+}
+
+/* ─── Tap highlight disattivato (aspetto nativo Android) ─── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── Touch target minimo 44px su tutti gli elementi cliccabili ─── */
+a, button, [role="button"] {
+  min-height: 44px;
+}
+/* Eccezione: link inline nel testo non hanno vincolo di altezza */
+p a, li a { min-height: unset; }
+
+/* ════════════════════════════════
+   HERO — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 80px;
+    min-height: 100svh;
+  }
+
+  .hero__inner {
+    padding-inline: var(--space-md);
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Avatar più piccolo su mobile */
+  .hero__avatar-wrap {
+    width: min(220px, 65vw);
+    height: min(220px, 65vw);
+  }
+
+  .hero__greeting {
+    font-size: 0.78rem;
+  }
+
+  .hero__tagline {
+    font-size: 0.98rem;
+    max-width: 100%;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero__ctas .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero__badge {
+    font-size: 0.7rem;
+    right: -4px;
+    bottom: 8px;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .hero__scroll { display: none; }
+}
+
+/* ════════════════════════════════
+   NAVBAR — mobile refinements
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .navbar__inner {
+    padding-inline: var(--space-md);
+  }
+
+  .navbar__logo {
+    font-size: 1.35rem;
+  }
+
+  /* Menu mobile: link grandi e facili da toccare */
+  .navbar__mobile-link {
+    padding-block: var(--space-md);
+    font-size: 1.15rem;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ════════════════════════════════
+   SEZIONI — mobile spacing
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--space-md);
+  }
+
+  .section__header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .section__subtitle {
+    font-size: 0.92rem;
+  }
+}
+
+/* ════════════════════════════════
+   CHI SONO — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .chi-sono__inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vignetta: centrata sotto il testo su mobile */
+  .chi-sono__inner .vignette {
+    margin-inline: auto;
+    display: flex;
+  }
+
+  .chi-sono__text p {
+    font-size: 0.97rem;
+  }
+}
+
+/* ════════════════════════════════
+   COSA FACCIO — mobile
+   ════════════════════════════════ */
+@media (max-width: 639px) {
+  .cosa-faccio__card {
+    padding: var(--space-lg);
+  }
+}
+
+/* ════════════════════════════════
+   SKILLS — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .skills__grid {
+    gap: var(--space-sm);
+  }
+  .skills__item {
+    min-width: 84px;
+    padding: var(--space-md) var(--space-lg);
+  }
+  .skills__icon i { font-size: 2rem; }
+}
+
+/* ════════════════════════════════
+   TIMELINE — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .timeline__bg { display: none; }  /* SVG decorativo nascosto su mobile piccolo */
+
+  .timeline__item {
+    gap: var(--space-md);
+    padding-bottom: var(--space-xl);
+  }
+
+  .timeline__dot {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+  .timeline__item::before {
+    left: 22px;
+    top: 50px;
+  }
+
+  .timeline__card {
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .timeline__title {
+    font-size: 1.1rem;
+  }
+}
+
+/* ════════════════════════════════
+   PROGETTI — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Overlay visibile anche senza hover (mobile: sempre parzialmente) */
+  .progetto__overlay {
+    opacity: 0;
+  }
+
+  /* Touch: mostra overlay al tap tramite focus */
+  .progetto:focus-within .progetto__overlay,
+  .progetto:active .progetto__overlay {
+    opacity: 1;
+  }
+}
+
+/* ════════════════════════════════
+   BLOG — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .blog-card {
+    padding: var(--space-lg);
+  }
+}
+
+/* ════════════════════════════════
+   CURIOSITÀ — mobile
+   ════════════════════════════════ */
+@media (max-width: 639px) {
+  .curiosita__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  .curiosita__card {
+    padding: var(--space-md);
+  }
+  .curiosita__emoji { font-size: 2.2rem; }
+  .curiosita__text  { font-size: 0.88rem; }
+}
+
+/* ════════════════════════════════
+   OBIETTIVI — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Nasconde vignetta lampadina su mobile per non occupare spazio */
+  #obiettivi .vignette {
+    display: none;
+  }
+}
+
+/* ════════════════════════════════
+   CONTATTI — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  .contatti__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Vignetta telefono: centrata su mobile */
+  #contatti .vignette {
+    margin-inline: auto;
+  }
+}
+
+/* ════════════════════════════════
+   FOOTER — mobile
+   ════════════════════════════════ */
+@media (max-width: 767px) {
+  footer {
+    padding: var(--space-lg) var(--space-md) !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* ════════════════════════════════
+   VIGNETTE — touch device
+   ════════════════════════════════ */
+@media (hover: none) {
+  /* Su dispositivi touch non c'è hover, le vignette sono più piccole */
+  .vignette {
+    transform: none !important;
+  }
+  /* Mostriamo la label sempre visibile su touch */
+  .vignette__label {
+    opacity: 0.7;
+    transform: none;
+  }
+}
+
+/* ════════════════════════════════
+   SAFE AREA — iPhone notch / Dynamic Island
+   ════════════════════════════════ */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+    height: calc(72px + env(safe-area-inset-top));
+  }
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

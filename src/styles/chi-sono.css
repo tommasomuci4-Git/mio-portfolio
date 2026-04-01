@@ -1,0 +1,80 @@
+/* ============================================================
+   CHI-SONO.CSS
+   ============================================================ */
+
+.chi-sono {
+  position: relative;
+}
+
+.chi-sono__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.chi-sono__text {
+  max-width: 65ch;
+}
+
+.chi-sono__text p {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+.chi-sono__text p:last-child { margin-bottom: 0; }
+
+.chi-sono__text strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Highlight inline con gradiente */
+.chi-sono__text .highlight {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ─── Pillole info rapide ─── */
+.chi-sono__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.chi-sono__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  transition: border-color var(--duration-fast), color var(--duration-fast);
+}
+.chi-sono__pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+.chi-sono__pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  flex-shrink: 0;
+}
+
+/* ─── Desktop ─── */
+@media (min-width: 768px) {
+  .chi-sono__inner {
+    grid-template-columns: 1fr auto;
+  }
+}

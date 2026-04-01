@@ -1,0 +1,182 @@
+/* ============================================================
+   TIMELINE.CSS — Stile cartoon anni '90 (ISOLATO)
+   Questo file usa volutamente valori non-standard per lo stile
+   cartoon: font Fredoka One, colori piatti, outline spessi.
+   Non tocca i token del resto del sito.
+   ============================================================ */
+
+.timeline {
+  background: #1a0a3e;
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-3xl);
+}
+
+/* Sfondo texture: puntini pixel stile anni '90 */
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* ─── Header sezione con font cartoon ─── */
+.timeline .section__label {
+  font-family: var(--font-cartoon);
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: #ffd700;
+}
+
+.timeline .section__title {
+  font-family: var(--font-cartoon);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #fff;
+  text-shadow: 4px 4px 0 #1a0a3e, -2px -2px 0 #000;
+  -webkit-text-fill-color: #fff;
+  background: none;
+}
+
+/* ─── SVG sfondo illustrato ─── */
+.timeline__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* ─── Track della timeline ─── */
+.timeline__track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+  margin-inline: auto;
+  padding-top: var(--space-xl);
+}
+
+/* ─── Singola tappa ─── */
+.timeline__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xl);
+  position: relative;
+  padding-bottom: var(--space-2xl);
+}
+.timeline__item:last-child { padding-bottom: 0; }
+
+/* Linea verticale connettore */
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 58px;
+  bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffd700 0px,
+    #ffd700 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  border-radius: 2px;
+}
+.timeline__item:last-child::before { display: none; }
+
+/* ─── Icona / dot ─── */
+.timeline__dot {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.timeline__item:hover .timeline__dot {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* Colori diversi per ogni tappa */
+.timeline__item:nth-child(1) .timeline__dot { background: #60a5fa; }
+.timeline__item:nth-child(2) .timeline__dot { background: #34d399; }
+.timeline__item:nth-child(3) .timeline__dot { background: #f59e0b; }
+.timeline__item:nth-child(4) .timeline__dot { background: #f472b6; }
+
+/* ─── Card contenuto ─── */
+.timeline__card {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 16px;
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: 6px 6px 0 #000;
+  position: relative;
+  transition: transform var(--duration-base) var(--ease-spring),
+              box-shadow var(--duration-base);
+}
+.timeline__item:hover .timeline__card {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0 #000;
+}
+
+/* Pallino di collegamento card→linea */
+.timeline__card::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 22px;
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.timeline__year {
+  font-family: var(--font-cartoon);
+  font-size: 0.85rem;
+  color: #7c3aed;
+  margin-bottom: 4px;
+}
+
+.timeline__title {
+  font-family: var(--font-cartoon);
+  font-size: 1.3rem;
+  color: #1a0a3e;
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.timeline__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ─── Decorazioni cartoon SVG ─── */
+.timeline__deco {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .timeline__item {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-2xl);
+  }
+  .timeline__item::before { left: 29px; }
+}

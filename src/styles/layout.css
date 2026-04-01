@@ -1,0 +1,149 @@
+/* ============================================================
+   LAYOUT.CSS — Container, sezioni, spacing helpers
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+/* ─── Sezioni generiche ─── */
+.section {
+  padding-block: var(--space-2xl);   /* 5rem su mobile */
+  position: relative;
+}
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-3xl); }  /* 8rem su desktop */
+}
+
+.section--alt {
+  background-color: var(--color-surface);
+}
+
+/* ─── Header di sezione ─── */
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.section__label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-3);
+  margin-bottom: var(--space-sm);
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+}
+
+.section__subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ─── Bottoni globali ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo);
+  min-height: 48px;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: var(--glow-violet);
+  border: none;
+}
+.btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-pink);
+}
+.btn--primary:active { transform: translateY(0); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+}
+.btn--outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--glow-violet);
+}
+
+/* ─── Card base (glassmorphism + gradient border on hover) ─── */
+.card {
+  position: relative;
+  background: rgba(17, 17, 40, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--duration-base);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+.card:hover::before { opacity: 1; }
+
+/* ─── Divisore decorativo ─── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  margin-inline: auto;
+  margin-top: var(--space-md);
+}
+
+/* ─── Elementi invisibili pre-animazione GSAP ─── */
+.js-fade {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ─── Responsive ─── */
+@media (min-width: 768px) {
+  .container { padding-inline: var(--space-xl); }
+}

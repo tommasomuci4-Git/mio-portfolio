@@ -1,0 +1,192 @@
+/* ============================================================
+   NAVBAR.CSS — Fixed, scroll-aware, hamburger mobile
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition:
+    background-color var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo),
+    backdrop-filter var(--duration-base);
+}
+
+/* Stato scrollato: sfondo + blur */
+.navbar--scrolled {
+  background-color: rgba(9, 9, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+/* ─── Inner ─── */
+.navbar__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-xl);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* ─── Logo ─── */
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ─── Links desktop ─── */
+.navbar__links {
+  display: none;        /* nascosti su mobile, visibili da 768px */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .navbar__links { display: flex; }
+}
+
+.navbar__link {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--duration-fast),
+    background-color var(--duration-fast);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--color-text);
+  background-color: rgba(124, 58, 237, 0.12);
+}
+
+.navbar__link--active {
+  color: var(--color-accent-3);
+}
+
+/* ─── CTA button desktop ─── */
+.navbar__cta {
+  display: none;
+  margin-left: var(--space-md);
+  padding: 0.5rem 1.2rem;
+  font-size: 0.88rem;
+  min-height: 40px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar__cta { display: inline-flex; }
+}
+
+/* ─── Hamburger ─── */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast);
+}
+
+.navbar__hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 768px) {
+  .navbar__hamburger { display: none; }
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: var(--radius-full);
+  transform-origin: center;
+  transition:
+    transform var(--duration-fast) var(--ease-out-expo),
+    opacity var(--duration-fast);
+}
+
+/* Hamburger → X quando aperto */
+.navbar__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Menu mobile ─── */
+.navbar__mobile {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  background-color: rgba(9, 9, 15, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--duration-base) var(--ease-out-expo);
+  visibility: hidden;
+}
+
+.navbar__mobile--open {
+  max-height: 480px;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .navbar__mobile { display: none; }
+}
+
+.navbar__mobile-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--duration-fast);
+}
+
+.navbar__mobile-link:last-child {
+  border-bottom: none;
+}
+
+.navbar__mobile-link:hover {
+  color: var(--color-accent-3);
+}

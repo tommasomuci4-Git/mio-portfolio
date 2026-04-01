@@ -1,0 +1,148 @@
+/* ============================================================
+   VIGNETTES.CSS — 4 vignette interattive
+   Pattern: JS toggling .vignette--active, CSS fa tutto il resto
+   ============================================================ */
+
+.vignette {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.vignette svg {
+  transition: filter var(--duration-base);
+}
+
+.vignette__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent-3);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration-fast),
+    transform var(--duration-fast);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   COMPUTER
+   OFF → schermo buio
+   ON  → schermo luminoso + testo
+   ═══════════════════════════════════════════ */
+.vignette[data-vignette="computer"] .screen {
+  fill: #1a1a2e;
+  transition: fill var(--duration-base) var(--ease-out-expo);
+}
+.vignette[data-vignette="computer"] .scanlines {
+  opacity: 0;
+  transition: opacity var(--duration-base);
+}
+
+.vignette--active[data-vignette="computer"] .screen {
+  fill: #e8f4fd;
+}
+.vignette--active[data-vignette="computer"] .scanlines {
+  opacity: 0.08;
+}
+.vignette--active[data-vignette="computer"] .vignette__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.vignette--active[data-vignette="computer"] svg {
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.5));
+}
+
+/* ═══════════════════════════════════════════
+   LAMPADINA
+   OFF → spenta, grigia
+   ON  → gialla con glow radiale
+   ═══════════════════════════════════════════ */
+.vignette[data-vignette="lightbulb"] .bulb-glass {
+  fill: #2a2a3e;
+  transition: fill var(--duration-base), filter var(--duration-base);
+}
+.vignette[data-vignette="lightbulb"] .glow-circle {
+  opacity: 0;
+  transition: opacity var(--duration-base);
+}
+.vignette[data-vignette="lightbulb"] .filament {
+  stroke: #555;
+  transition: stroke var(--duration-base);
+}
+
+.vignette--active[data-vignette="lightbulb"] .bulb-glass {
+  fill: #fde68a;
+  filter: drop-shadow(0 0 16px rgba(253, 230, 138, 0.8));
+}
+.vignette--active[data-vignette="lightbulb"] .glow-circle {
+  opacity: 1;
+}
+.vignette--active[data-vignette="lightbulb"] .filament {
+  stroke: #d97706;
+}
+.vignette--active[data-vignette="lightbulb"] svg {
+  filter: drop-shadow(0 0 20px rgba(253, 224, 71, 0.6));
+}
+
+/* ═══════════════════════════════════════════
+   TELEFONO
+   OFF → silenzioso, fermo
+   ON  → vibra + badge notifica
+   ═══════════════════════════════════════════ */
+.vignette[data-vignette="phone"] .phone-body {
+  transition: filter var(--duration-base);
+}
+.vignette[data-vignette="phone"] .notif-badge {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center;
+  transition:
+    opacity var(--duration-fast),
+    transform var(--duration-fast) var(--ease-spring);
+}
+
+@keyframes vibrate {
+  0%,100% { transform: translateX(0) rotate(0deg); }
+  15%     { transform: translateX(-3px) rotate(-3deg); }
+  30%     { transform: translateX(3px) rotate(3deg); }
+  45%     { transform: translateX(-3px) rotate(-2deg); }
+  60%     { transform: translateX(3px) rotate(2deg); }
+  75%     { transform: translateX(-2px) rotate(-1deg); }
+}
+
+.vignette--active[data-vignette="phone"] svg {
+  animation: vibrate 0.5s ease-in-out 1;
+}
+.vignette--active[data-vignette="phone"] .notif-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+.vignette--active[data-vignette="phone"] .phone-body {
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+}
+
+/* ═══════════════════════════════════════════
+   INGRANAGGIO
+   OFF → fermo
+   ON  → gira infinitamente
+   ═══════════════════════════════════════════ */
+@keyframes spin-cw  { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+@keyframes spin-ccw { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+
+.vignette[data-vignette="gear"] .gear-main {
+  transform-origin: center;
+  transition: filter var(--duration-base);
+}
+
+.vignette--active[data-vignette="gear"] .gear-main {
+  animation: spin-cw 1.2s linear infinite;
+}
+.vignette--active[data-vignette="gear"] svg {
+  filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.5));
+}

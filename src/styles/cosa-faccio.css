@@ -1,0 +1,78 @@
+/* ============================================================
+   COSA-FACCIO.CSS
+   ============================================================ */
+
+.cosa-faccio__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* ─── Card ─── */
+.cosa-faccio__card {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cosa-faccio__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.cosa-faccio__card:hover .cosa-faccio__icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.cosa-faccio__title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.cosa-faccio__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.cosa-faccio__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent-3);
+  letter-spacing: 0.08em;
+}
+.cosa-faccio__tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-3);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .cosa-faccio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cosa-faccio__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

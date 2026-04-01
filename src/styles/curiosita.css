@@ -1,0 +1,49 @@
+/* ============================================================
+   CURIOSITA.CSS
+   ============================================================ */
+
+.curiosita__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.curiosita__card {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  text-align: left;
+}
+
+.curiosita__emoji {
+  font-size: 2.8rem;
+  line-height: 1;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.curiosita__card:hover .curiosita__emoji {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.curiosita__num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent-3);
+  letter-spacing: 0.1em;
+}
+
+.curiosita__text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .curiosita__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .curiosita__grid { grid-template-columns: repeat(4, 1fr); }
+}
