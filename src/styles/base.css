@@ -10,25 +10,25 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Colori base */
-  --color-bg:        #09090f;
-  --color-surface:   #111128;
-  --color-surface-2: #1a1a35;
-  --color-border:    rgba(255, 255, 255, 0.08);
+  --color-bg:        #eef2f7;
+  --color-surface:   #ffffff;
+  --color-surface-2: #f1f5f9;
+  --color-border:    rgba(0, 0, 0, 0.09);
 
   /* Accenti */
-  --color-accent:   #7c3aed;
-  --color-accent-2: #c026d3;
-  --color-accent-3: #22d3ee;
+  --color-accent:   #2563eb;
+  --color-accent-2: #1d4ed8;
+  --color-accent-3: #0284c7;
   --color-pink:     #ec4899;
 
   /* Gradiente principale */
-  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #ec4899 100%);
-  --gradient-cyan:    linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
-  --gradient-text:    linear-gradient(135deg, #a78bfa 0%, #e879f9 50%, #f472b6 100%);
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-cyan:    linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-text:    linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
 
   /* Testo */
-  --color-text:       #f0f0ff;
-  --color-text-muted: #7070a0;
+  --color-text:       #1e293b;
+  --color-text-muted: #64748b;
 
   /* Tipografia */
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -53,11 +53,11 @@
   --radius-full: 9999px;
 
   /* Shadows / Glow */
-  --glow-violet:  0 0 30px rgba(124, 58, 237, 0.45);
-  --glow-pink:    0 0 30px rgba(192, 38, 211, 0.45);
-  --glow-cyan:    0 0 30px rgba(34, 211, 238, 0.35);
-  --shadow-card:  0 4px 40px rgba(0, 0, 0, 0.6);
-  --shadow-sm:    0 2px 12px rgba(0, 0, 0, 0.4);
+  --glow-violet:  0 0 30px rgba(37, 99, 235, 0.2);
+  --glow-pink:    0 0 30px rgba(2, 132, 199, 0.2);
+  --glow-cyan:    0 0 30px rgba(2, 132, 199, 0.2);
+  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.05);
 
   /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -129,7 +129,7 @@ button {
 
 /* ─── Selezione testo ─── */
 ::selection {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(37, 99, 235, 0.15);
   color: var(--color-text);
 }
 

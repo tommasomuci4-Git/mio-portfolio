@@ -97,12 +97,10 @@
   box-shadow: var(--glow-violet);
 }
 
-/* ─── Card base (glassmorphism + gradient border on hover) ─── */
+/* ─── Card base (white + shadow + gradient border on hover) ─── */
 .card {
   position: relative;
-  background: rgba(17, 17, 40, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   transition:
