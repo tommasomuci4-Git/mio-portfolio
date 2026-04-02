@@ -22,6 +22,12 @@ import { initCursor }      from './js/cursor.js'
 import { initTyping }      from './js/typing.js'
 import { initParticles }   from './js/particles.js'
 
+// ─── Forza sempre partenza dall'hero al caricamento ───
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+window.scrollTo(0, 0)
+
 // ─── Init al DOMContentLoaded ───
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar()
