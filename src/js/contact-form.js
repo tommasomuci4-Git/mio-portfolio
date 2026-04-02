@@ -2,7 +2,7 @@
    CONTACT-FORM.JS — Validazione + submit Web3Forms + EmailJS autoresposta
    ============================================================ */
 
-const EMAILJS_SERVICE_ID  = 'service_27e5tzh'
+const EMAILJS_SERVICE_ID  = 'service_wxn3i9p'
 const EMAILJS_TEMPLATE_ID = 'template_ebhfr1i'
 const EMAILJS_PUBLIC_KEY  = 'heCC5J5HIs4uNrnN0'
 
