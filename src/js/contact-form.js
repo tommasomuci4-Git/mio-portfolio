@@ -86,10 +86,12 @@ export function initContactForm() {
       });
 
       const data = await response.json()
+      console.log('Web3Forms response:', data)
       if (response.ok && data.success) {
         // Invia autoresposta via EmailJS
         const senderName  = form.querySelector('[name="name"]')?.value  || ''
         const senderEmail = form.querySelector('[name="email"]')?.value || ''
+        console.log('Sending autoReply to:', senderEmail)
         sendAutoReply(senderName, senderEmail).catch((err) => console.error('EmailJS error:', err))
         showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
