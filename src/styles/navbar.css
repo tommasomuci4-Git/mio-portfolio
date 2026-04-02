@@ -147,10 +147,12 @@
   background: rgba(0, 0, 0, 0.55);
   z-index: 998;
   opacity: 0;
+  pointer-events: none;
   transition: opacity var(--duration-slow) var(--ease-out-expo);
 }
 .navbar__backdrop--open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ─── Menu mobile — drawer laterale ─── */
