@@ -168,17 +168,9 @@
 /* ─── Card specializzazioni destra ─── */
 .hero__cards {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-md);
   justify-content: center;
-}
-
-@media (min-width: 1024px) {
-  .hero__cards {
-    flex-direction: column;
-    justify-content: center;
-  }
 }
 
 .hero__card {
@@ -189,29 +181,57 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  min-width: 180px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  cursor: default;
   transition:
     transform var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base);
 }
 .hero__card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card);
+  transform: translateX(4px);
+  box-shadow: 0 4px 24px rgba(37,99,235,0.1);
 }
 
-.hero__card-icon {
-  font-size: 1.8rem;
-  line-height: 1;
+/* Icona con sfondo colorato */
+.hero__card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+.hero__card:hover .hero__card-icon-wrap {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.hero__card-icon-wrap--blue {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+.hero__card-icon-wrap--violet {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+}
+.hero__card-icon-wrap--teal {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0d9488;
+}
+
+.hero__card-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .hero__card-title {
   font-family: var(--font-heading);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
+  line-height: 1.2;
 }
 
 .hero__card-sub {
@@ -219,7 +239,21 @@
   font-size: 0.72rem;
   color: var(--color-text-muted);
   margin: 0;
-  margin-top: 2px;
+  margin-top: 3px;
+}
+
+.hero__card-arrow {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity var(--duration-fast),
+    transform var(--duration-fast);
+}
+.hero__card:hover .hero__card-arrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ─── Desktop: 3 colonne ─── */
