@@ -7,7 +7,7 @@ const EMAILJS_TEMPLATE_ID = 'template_ebhfr1i'
 const EMAILJS_PUBLIC_KEY  = 'heCC5J5HIs4uNrnN0'
 
 async function sendAutoReply(name, email) {
-  await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+  const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -17,6 +17,8 @@ async function sendAutoReply(name, email) {
       template_params: { name, email },
     }),
   })
+  const text = await res.text()
+  console.log('EmailJS response:', res.status, text)
 }
 
 export function initContactForm() {
@@ -88,7 +90,7 @@ export function initContactForm() {
         // Invia autoresposta via EmailJS
         const senderName  = form.querySelector('[name="name"]')?.value  || ''
         const senderEmail = form.querySelector('[name="email"]')?.value || ''
-        sendAutoReply(senderName, senderEmail).catch(() => {})
+        sendAutoReply(senderName, senderEmail).catch((err) => console.error('EmailJS error:', err))
         showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
         clearErrors();
