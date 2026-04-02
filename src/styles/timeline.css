@@ -1,15 +1,12 @@
 /* ============================================================
    TIMELINE.CSS — Stile cartoon anni '90 (ISOLATO)
-   Questo file usa volutamente valori non-standard per lo stile
-   cartoon: font Fredoka One, colori piatti, outline spessi.
-   Non tocca i token del resto del sito.
+   Usa font Fredoka One, colori piatti, outline stile cartoon.
    ============================================================ */
 
 .timeline {
   background: #1a0a3e;
   position: relative;
   overflow: hidden;
-  padding-block: var(--space-3xl);
 }
 
 /* Sfondo texture: puntini pixel stile anni '90 */
@@ -17,20 +14,18 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
 }
 
-/* ─── Header sezione con font cartoon ─── */
+/* ─── Header: font cartoon ─── */
 .timeline .section__label {
   font-family: var(--font-cartoon);
   letter-spacing: 0.05em;
   font-size: 0.9rem;
   color: #ffd700;
 }
-
 .timeline .section__title {
   font-family: var(--font-cartoon);
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -39,18 +34,10 @@
   -webkit-text-fill-color: #fff;
   background: none;
 }
+.timeline .section__subtitle { color: rgba(255,255,255,0.6); }
+.timeline .divider { background: #ffd700; }
 
-/* ─── SVG sfondo illustrato ─── */
-.timeline__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: visible;
-}
-
-/* ─── Track della timeline ─── */
+/* ─── Track ─── */
 .timeline__track {
   position: relative;
   display: flex;
@@ -64,33 +51,32 @@
 /* ─── Singola tappa ─── */
 .timeline__item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 60px 1fr;
   gap: var(--space-xl);
+  align-items: flex-start;
   position: relative;
   padding-bottom: var(--space-2xl);
 }
 .timeline__item:last-child { padding-bottom: 0; }
 
-/* Linea verticale connettore */
+/* Linea verticale tratteggiata */
 .timeline__item::before {
   content: '';
   position: absolute;
   left: 28px;
-  top: 58px;
+  top: 64px;
   bottom: 0;
   width: 4px;
   background: repeating-linear-gradient(
     to bottom,
-    #ffd700 0px,
-    #ffd700 8px,
-    transparent 8px,
-    transparent 16px
+    #ffd700 0px, #ffd700 8px,
+    transparent 8px, transparent 16px
   );
   border-radius: 2px;
 }
 .timeline__item:last-child::before { display: none; }
 
-/* ─── Icona / dot ─── */
+/* ─── Dot (cerchio colorato stile cartoon) ─── */
 .timeline__dot {
   width: 60px;
   height: 60px;
@@ -106,18 +92,21 @@
   box-shadow: 4px 4px 0 #000;
   transition: transform var(--duration-base) var(--ease-spring);
 }
-.timeline__item:hover .timeline__dot {
-  transform: scale(1.15) rotate(-5deg);
-}
+.timeline__item:hover .timeline__dot { transform: scale(1.15) rotate(-5deg); }
 
-/* Colori diversi per ogni tappa */
 .timeline__item:nth-child(1) .timeline__dot { background: #60a5fa; }
 .timeline__item:nth-child(2) .timeline__dot { background: #34d399; }
 .timeline__item:nth-child(3) .timeline__dot { background: #f59e0b; }
 .timeline__item:nth-child(4) .timeline__dot { background: #f472b6; }
 
+.timeline__dot--future {
+  background: transparent !important;
+  border: 4px dashed #ffd700;
+  box-shadow: none;
+}
+
 /* ─── Card contenuto ─── */
-.timeline__card {
+.timeline__content {
   background: #fff;
   border: 3px solid #000;
   border-radius: 16px;
@@ -127,13 +116,13 @@
   transition: transform var(--duration-base) var(--ease-spring),
               box-shadow var(--duration-base);
 }
-.timeline__item:hover .timeline__card {
+.timeline__item:hover .timeline__content {
   transform: translate(-4px, -4px);
   box-shadow: 10px 10px 0 #000;
 }
 
-/* Pallino di collegamento card→linea */
-.timeline__card::before {
+/* Pallino di collegamento card→dot */
+.timeline__content::before {
   content: '';
   position: absolute;
   left: -14px;
@@ -148,6 +137,7 @@
   font-family: var(--font-cartoon);
   font-size: 0.85rem;
   color: #7c3aed;
+  display: block;
   margin-bottom: 4px;
 }
 
@@ -164,19 +154,9 @@
   font-size: 0.88rem;
   color: #444;
   line-height: 1.6;
+  margin: 0;
 }
 
-/* ─── Decorazioni cartoon SVG ─── */
-.timeline__deco {
-  position: absolute;
-  pointer-events: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .timeline__item {
-    grid-template-columns: auto 1fr;
-    gap: var(--space-2xl);
-  }
-  .timeline__item::before { left: 29px; }
-}
+/* Placeholder marker e linea — non usati nel cartoon */
+.timeline__marker,
+.timeline__line { display: none; }

@@ -2,76 +2,61 @@
    OBIETTIVI.CSS
    ============================================================ */
 
+.obiettivi__inner {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
 .obiettivi__list {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-  max-width: 720px;
-  margin-inline: auto;
+  list-style: none;
 }
 
-.obiettivo {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-lg);
+.obiettivi__item {
+  display: flex;
   align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-fast), transform var(--duration-fast);
+}
+.obiettivi__item:hover {
+  border-color: var(--color-accent);
+  transform: translateX(6px);
 }
 
-/* Dot + linea verticale */
-.obiettivo__track {
+.obiettivi__check {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  padding-top: 2px;
+  transition: transform var(--duration-fast);
+}
+.obiettivi__item:hover .obiettivi__check {
+  transform: translateX(4px);
+}
+
+.obiettivi__item-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
-  padding-top: 4px;
+  gap: var(--space-xs);
 }
 
-.obiettivo__dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--gradient-primary);
-  box-shadow: var(--glow-violet);
-  flex-shrink: 0;
-  transition: transform var(--duration-base) var(--ease-spring);
-}
-.obiettivo:hover .obiettivo__dot {
-  transform: scale(1.4);
-}
-
-.obiettivo__line {
-  width: 2px;
-  flex: 1;
-  min-height: 40px;
-  background: linear-gradient(to bottom, var(--color-accent), transparent);
-  opacity: 0.3;
-}
-.obiettivo:last-child .obiettivo__line { display: none; }
-
-/* Contenuto */
-.obiettivo__content {
-  padding-bottom: var(--space-lg);
-}
-
-.obiettivo__label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--color-accent-3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: var(--space-xs);
-}
-
-.obiettivo__title {
+.obiettivi__item-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-sm);
 }
 
-.obiettivo__desc {
-  font-size: 0.92rem;
+.obiettivi__item-desc {
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.65;
+  margin: 0;
 }
