@@ -80,6 +80,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
+  scroll-snap-type: y proximity;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 body {

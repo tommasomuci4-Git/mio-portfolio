@@ -9,6 +9,7 @@
   padding-top: 72px;
   position: relative;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 /* Glow blu in alto-sinistra */
