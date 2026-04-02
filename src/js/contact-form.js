@@ -2,13 +2,22 @@
    CONTACT-FORM.JS — Validazione + submit Web3Forms + EmailJS autoresposta
    ============================================================ */
 
-import emailjs from '@emailjs/browser'
-
 const EMAILJS_SERVICE_ID  = 'service_27e5tzh'
 const EMAILJS_TEMPLATE_ID = 'template_ebhfr1i'
 const EMAILJS_PUBLIC_KEY  = 'heCC5J5HIs4uNrnN0'
 
-emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
+async function sendAutoReply(name, email) {
+  await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      service_id:      EMAILJS_SERVICE_ID,
+      template_id:     EMAILJS_TEMPLATE_ID,
+      user_id:         EMAILJS_PUBLIC_KEY,
+      template_params: { name, email },
+    }),
+  })
+}
 
 export function initContactForm() {
   const form = document.querySelector('.contact-form');
@@ -79,8 +88,7 @@ export function initContactForm() {
         // Invia autoresposta via EmailJS
         const senderName  = form.querySelector('[name="name"]')?.value  || ''
         const senderEmail = form.querySelector('[name="email"]')?.value || ''
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { name: senderName, email: senderEmail })
-          .catch(() => {})
+        sendAutoReply(senderName, senderEmail).catch(() => {})
         showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
         clearErrors();
