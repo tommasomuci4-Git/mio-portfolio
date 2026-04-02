@@ -3,7 +3,7 @@
    ============================================================ */
 
 const EMAILJS_SERVICE_ID  = 'service_wxn3i9p'
-const EMAILJS_TEMPLATE_ID = 'template_ebhfr1i'
+const EMAILJS_TEMPLATE_ID = 'template_35sxbps'
 const EMAILJS_PUBLIC_KEY  = 'heCC5J5HIs4uNrnN0'
 
 async function sendAutoReply(name, email) {
