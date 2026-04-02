@@ -56,7 +56,7 @@
   background: rgba(59, 130, 246, 0.06);
 }
 .cursor__dot--hover {
-  transform: translate(var(--x), var(--y)) scale(0);
+  transform: scale(0) !important;
   opacity: 0;
 }
 
@@ -79,11 +79,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: 3px;
   width: 0%;
   background: var(--gradient-primary);
   z-index: 9998;
   transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
 }
 
 /* ─── Particles canvas ─── */
@@ -91,8 +92,8 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
+  z-index: 1;
+  opacity: 0.4;
 }
 
 /* ─── Gradient mouse follower ─── */
@@ -100,6 +101,5 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
-  transition: background 0.1s;
+  z-index: 1;
 }

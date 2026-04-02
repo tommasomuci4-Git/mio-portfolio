@@ -69,16 +69,20 @@ export function initCursor() {
   // ─── Gradient che segue il mouse ───
   const glow = document.querySelector('.mouse-glow')
   if (glow) {
-    let glowX = window.innerWidth / 2
-    let glowY = window.innerHeight / 2
+    let glowTargetX = window.innerWidth / 2
+    let glowTargetY = window.innerHeight / 2
+    let glowX = glowTargetX
+    let glowY = glowTargetY
 
     document.addEventListener('mousemove', (e) => {
-      glowX += (e.clientX - glowX) * 0.06
-      glowY += (e.clientY - glowY) * 0.06
+      glowTargetX = e.clientX
+      glowTargetY = e.clientY
     })
 
     function animateGlow() {
-      glow.style.background = `radial-gradient(600px circle at ${glowX}px ${glowY}px, rgba(59,130,246,0.09) 0%, transparent 70%)`
+      glowX += (glowTargetX - glowX) * 0.06
+      glowY += (glowTargetY - glowY) * 0.06
+      glow.style.background = `radial-gradient(700px circle at ${glowX}px ${glowY}px, rgba(59,130,246,0.13) 0%, transparent 70%)`
       requestAnimationFrame(animateGlow)
     }
     animateGlow()
