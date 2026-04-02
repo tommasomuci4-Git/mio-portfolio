@@ -96,12 +96,115 @@
   .navbar__cta { display: inline-flex; }
 }
 
-/* ─── Hamburger — nascosto sempre ─── */
+/* ─── Hamburger — visibile solo su mobile ─── */
 .navbar__hamburger {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast);
+}
+.navbar__hamburger:hover {
+  background-color: rgba(255,255,255,0.06);
 }
 
-/* ─── Menu mobile — nascosto sempre ─── */
+.navbar__hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    opacity var(--duration-fast);
+  transform-origin: center;
+}
+
+/* Animazione → X */
+.navbar__hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Menu mobile — drawer laterale ─── */
 .navbar__mobile {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(300px, 82vw);
+  height: 100svh;
+  background: rgba(15, 23, 42, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-2xl) var(--space-xl);
+  gap: var(--space-xs);
+  transform: translateX(100%);
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+  z-index: 999;
+}
+
+.navbar__mobile--open {
+  transform: translateX(0);
+}
+
+.navbar__mobile-link {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  padding: var(--space-sm) 0;
+  text-decoration: none;
+  display: block;
+  transition:
+    color var(--duration-fast),
+    transform var(--duration-base) var(--ease-out-expo);
+}
+.navbar__mobile-link:hover {
+  color: var(--color-text);
+  transform: translateX(10px);
+}
+
+/* Numero decorativo accanto al link */
+.navbar__mobile-link::before {
+  content: attr(data-num);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent-3);
+  vertical-align: super;
+  margin-right: var(--space-sm);
+  opacity: 0.8;
+}
+
+/* Overlay scuro dietro il drawer */
+.navbar__mobile::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  right: min(300px, 82vw);
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out-expo);
+}
+.navbar__mobile--open::before {
+  opacity: 1;
+  pointer-events: auto;
 }

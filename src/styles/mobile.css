@@ -69,7 +69,7 @@ p a, li a, .navbar__link, .navbar__logo { min-height: unset; }
 }
 
 /* ════════════════════════════════
-   NAVBAR — mobile: link inline, no hamburger
+   NAVBAR — mobile: hamburger + drawer
    ════════════════════════════════ */
 @media (max-width: 767px) {
   .navbar__inner {
@@ -77,25 +77,17 @@ p a, li a, .navbar__link, .navbar__logo { min-height: unset; }
     gap: var(--space-sm);
   }
 
-  /* Logo più compatto */
-  .navbar__logo {
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
-  /* Link ridotti per stare in una riga */
+  /* Nasconde i link desktop */
   .navbar__links {
-    gap: 0;
+    display: none;
   }
 
-  .navbar__link {
-    font-size: 0.78rem;
-    padding: 0.35rem 0.5rem;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
+  /* Mostra hamburger */
+  .navbar__hamburger {
+    display: flex;
   }
 
-  /* CTA "Parliamo" nascosto su mobile — i link bastano */
+  /* Nasconde CTA desktop */
   .navbar__cta {
     display: none;
   }
