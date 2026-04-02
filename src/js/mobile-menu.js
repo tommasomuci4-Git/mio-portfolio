@@ -29,10 +29,21 @@ export function initMobileMenu() {
     document.body.style.overflow = 'hidden';
   };
 
-  hamburger.addEventListener('click', () => isOpen ? close() : open());
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isOpen ? close() : open();
+  });
 
-  // Chiude toccando il backdrop
+  // Chiude toccando il backdrop (visuale)
   backdrop?.addEventListener('click', close);
+
+  // Chiude toccando qualsiasi punto fuori dal drawer — funziona in ogni sezione
+  document.addEventListener('click', (e) => {
+    if (!isOpen) return;
+    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      close();
+    }
+  });
 
   // Chiude cliccando un link
   mobileMenu.querySelectorAll('.navbar__mobile-link').forEach((link) => {
