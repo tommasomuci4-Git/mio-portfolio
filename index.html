@@ -303,7 +303,7 @@
             <!-- Form -->
             <div class="contatti__form-wrap">
               <!-- TODO DEPLOY: Vai su formspree.io → crea un form → copia l'ID e sostituisci YOUR_FORM_ID qui sotto -->
-              <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+              <form class="contact-form" action="https://formsubmit.co/ajax/tommasomuci4@gmail.com" method="POST" novalidate>
                 <div class="form-row">
                   <div class="form-group">
                     <label for="name">Nome *</label>
@@ -322,6 +322,12 @@
                   <label for="message">Messaggio *</label>
                   <textarea id="message" name="message" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
                 </div>
+                <!-- Formsubmit.co config -->
+                <input type="hidden" name="_subject"      value="Nuovo messaggio dal portfolio — Tommaso Muci">
+                <input type="hidden" name="_template"     value="table">
+                <input type="hidden" name="_captcha"      value="false">
+                <input type="hidden" name="_autoresponse" value="Ciao! Ho ricevuto il tuo messaggio e ti risponderò il prima possibile, solitamente entro 24-48 ore. Grazie per avermi scritto — a presto! Tommaso Muci · tommasomuci4@gmail.com">
+
                 <button type="submit" class="btn btn--primary contact-form__submit">
                   Invia messaggio
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>

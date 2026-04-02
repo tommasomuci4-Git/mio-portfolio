@@ -66,8 +66,9 @@ export function initContactForm() {
         headers: { Accept: 'application/json' },
       });
 
-      if (response.ok) {
-        showStatus('success', '✓ Messaggio inviato! Ti rispondo presto.');
+      const data = await response.json()
+      if (response.ok && data.success === 'true') {
+        showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
         clearErrors();
       } else {
