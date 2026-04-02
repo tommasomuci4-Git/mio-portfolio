@@ -73,3 +73,33 @@
   .cursor__dot,
   .cursor__ring { display: none; }
 }
+
+/* ─── Scroll progress bar ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--gradient-primary);
+  z-index: 9998;
+  transition: width 0.1s linear;
+}
+
+/* ─── Particles canvas ─── */
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ─── Gradient mouse follower ─── */
+.mouse-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.1s;
+}

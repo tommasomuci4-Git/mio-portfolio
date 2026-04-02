@@ -19,6 +19,8 @@ import { initMobileMenu }  from './js/mobile-menu.js'
 import { initAnimations }  from './js/animations.js'
 import { initContactForm } from './js/contact-form.js'
 import { initCursor }      from './js/cursor.js'
+import { initTyping }      from './js/typing.js'
+import { initParticles }   from './js/particles.js'
 
 // ─── Init al DOMContentLoaded ───
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,4 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations()
   initContactForm()
   initCursor()
+  initTyping()
+  initParticles()
 })

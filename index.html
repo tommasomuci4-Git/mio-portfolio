@@ -24,6 +24,12 @@
     <!-- Cursore custom -->
     <div class="cursor__dot"  aria-hidden="true"></div>
     <div class="cursor__ring" aria-hidden="true"></div>
+    <!-- Gradient mouse follower -->
+    <div class="mouse-glow" aria-hidden="true"></div>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <!-- Particles canvas -->
+    <canvas class="particles-canvas" aria-hidden="true"></canvas>
 
     <!-- ═══════════════════════════════════════
          NAVBAR
@@ -70,7 +76,7 @@
             <p class="hero__greeting">Ciao, sono</p>
             <h1 class="hero__name">Tommaso<br>Muci.</h1>
             <p class="hero__tagline">
-              Gestisco case vacanze, costruisco strumenti digitali e studio il corpo umano.
+              <span class="hero__tagline-static">Sono un </span><span class="hero__tagline-typed" aria-live="polite"></span>
             </p>
 
             <!-- Email visibile direttamente -->
@@ -104,7 +110,10 @@
               <div class="hero__avatar">
                 <img src="/avatar.jpg" alt="Foto di Tommaso Muci" class="hero__avatar-img" />
               </div>
-              <div class="hero__badge">🚀 Disponibile a nuovi progetti</div>
+              <div class="hero__badge">
+                <span class="hero__badge-dot" aria-hidden="true"></span>
+                Disponibile a nuovi progetti
+              </div>
             </div>
           </div>
 

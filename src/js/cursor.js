@@ -55,4 +55,32 @@ export function initCursor() {
     dot.style.opacity  = '1'
     ring.style.opacity = '1'
   })
+
+  // ─── Scroll progress bar ───
+  const progressBar = document.querySelector('.scroll-progress')
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight
+      const pct   = total > 0 ? (window.scrollY / total) * 100 : 0
+      progressBar.style.width = `${pct}%`
+    }, { passive: true })
+  }
+
+  // ─── Gradient che segue il mouse ───
+  const glow = document.querySelector('.mouse-glow')
+  if (glow) {
+    let glowX = window.innerWidth / 2
+    let glowY = window.innerHeight / 2
+
+    document.addEventListener('mousemove', (e) => {
+      glowX += (e.clientX - glowX) * 0.06
+      glowY += (e.clientY - glowY) * 0.06
+    })
+
+    function animateGlow() {
+      glow.style.background = `radial-gradient(600px circle at ${glowX}px ${glowY}px, rgba(59,130,246,0.09) 0%, transparent 70%)`
+      requestAnimationFrame(animateGlow)
+    }
+    animateGlow()
+  }
 }
