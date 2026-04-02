@@ -2,7 +2,14 @@
    CONTACT-FORM.JS — Validazione + submit Formspree
    ============================================================ */
 
+const EMAILJS_SERVICE_ID  = 'service_27e5tzh'
+const EMAILJS_TEMPLATE_ID = 'template_ebhfr1i'
+const EMAILJS_PUBLIC_KEY  = 'heCC5J5HIs4uNrnN0'
+
 export function initContactForm() {
+  if (window.emailjs) {
+    window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY })
+  }
   const form = document.querySelector('.contact-form');
   if (!form) return;
 
@@ -68,6 +75,13 @@ export function initContactForm() {
 
       const data = await response.json()
       if (response.ok && data.success) {
+        // Invia autoresposta via EmailJS
+        if (window.emailjs) {
+          const name  = form.querySelector('[name="name"]')?.value  || ''
+          const email = form.querySelector('[name="email"]')?.value || ''
+          window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { name, email })
+            .catch(() => {}) // non bloccare se fallisce
+        }
         showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
         clearErrors();
