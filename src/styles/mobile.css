@@ -105,6 +105,13 @@ p a, li a, .navbar__link, .navbar__logo { min-height: unset; }
    SEZIONI — mobile spacing
    ════════════════════════════════ */
 @media (max-width: 767px) {
+  /* Rimuovi altezza fissa: su mobile le sezioni hanno altezza naturale */
+  .section {
+    min-height: unset;
+    padding-block: var(--space-2xl);
+    align-items: flex-start;
+  }
+
   .container {
     padding-inline: var(--space-md);
   }
