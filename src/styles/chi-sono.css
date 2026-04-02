@@ -6,13 +6,55 @@
   position: relative;
 }
 
-.chi-sono__inner {
+/* ─── Top: foto + bio affiancati ─── */
+.chi-sono__top {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-2xl);
   align-items: center;
+  margin-bottom: var(--space-2xl);
 }
 
+@media (min-width: 768px) {
+  .chi-sono__top {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+/* ─── Foto circolare ─── */
+.chi-sono__photo {
+  display: flex;
+  justify-content: center;
+}
+
+.chi-sono__photo img,
+.chi-sono__photo-placeholder {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+}
+
+.chi-sono__photo img {
+  object-fit: cover;
+  box-shadow: 0 0 0 3px var(--color-accent), var(--glow-violet);
+}
+
+.chi-sono__photo-placeholder {
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  box-shadow: 0 0 0 3px var(--color-accent), var(--glow-violet);
+}
+
+/* ─── Bio testo ─── */
 .chi-sono__text {
   max-width: 65ch;
 }
@@ -72,42 +114,52 @@
   flex-shrink: 0;
 }
 
-/* ─── Stats ─── */
-.chi-sono__stats {
-  display: flex;
-  gap: var(--space-xl);
-  flex-wrap: wrap;
-  margin-top: var(--space-xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border);
+/* ─── Fun facts: griglia 4 card ─── */
+.chi-sono__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
 }
 
-.chi-sono__stat {
+@media (min-width: 768px) {
+  .chi-sono__facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.chi-sono__fact {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  transition: border-color var(--duration-fast), transform var(--duration-fast);
 }
 
-.chi-sono__stat-num {
-  font-family: var(--font-heading);
-  font-size: 2.8rem;
-  font-weight: 800;
+.chi-sono__fact:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+.chi-sono__fact-icon {
+  font-size: 2rem;
   line-height: 1;
-  color: var(--color-accent);
-  letter-spacing: -0.02em;
 }
 
-.chi-sono__stat-label {
+.chi-sono__fact-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.chi-sono__fact-text {
   font-size: 0.82rem;
   color: var(--color-text-muted);
-  line-height: 1.4;
-  font-family: var(--font-mono);
-}
-
-/* ─── Desktop ─── */
-@media (min-width: 768px) {
-  .chi-sono__inner {
-    grid-template-columns: 1fr;
-    max-width: 72ch;
-  }
+  line-height: 1.5;
+  margin: 0;
 }
