@@ -18,8 +18,8 @@ input, textarea, select {
 a, button, [role="button"] {
   min-height: 44px;
 }
-/* Eccezione: link inline nel testo non hanno vincolo di altezza */
-p a, li a { min-height: unset; }
+/* Eccezione: link inline nel testo e navbar non hanno vincolo di altezza */
+p a, li a, .navbar__link, .navbar__logo { min-height: unset; }
 
 /* ════════════════════════════════
    HERO — mobile
@@ -92,6 +92,7 @@ p a, li a { min-height: unset; }
     font-size: 0.78rem;
     padding: 0.35rem 0.5rem;
     letter-spacing: -0.01em;
+    white-space: nowrap;
   }
 
   /* CTA "Parliamo" nascosto su mobile — i link bastano */
