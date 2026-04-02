@@ -91,6 +91,11 @@ p a, li a, .navbar__link, .navbar__logo { min-height: unset; }
   .navbar__cta {
     display: none;
   }
+
+  /* Backdrop visibile solo su mobile */
+  .navbar__backdrop {
+    display: block;
+  }
 }
 
 /* ════════════════════════════════
