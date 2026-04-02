@@ -21,6 +21,7 @@ import { initContactForm } from './js/contact-form.js'
 import { initCursor }      from './js/cursor.js'
 import { initTyping }      from './js/typing.js'
 import { initParticles }   from './js/particles.js'
+import { initScrollSnap }  from './js/scroll-snap.js'
 
 // ─── Init al DOMContentLoaded ───
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursor()
   initTyping()
   initParticles()
+  initScrollSnap()
 })
