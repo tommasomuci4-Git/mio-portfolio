@@ -67,7 +67,7 @@ export function initContactForm() {
       });
 
       const data = await response.json()
-      if (response.ok && data.success === 'true') {
+      if (response.ok && data.success) {
         showStatus('success', '✓ Messaggio inviato! Riceverai una conferma via email.');
         form.reset();
         clearErrors();
