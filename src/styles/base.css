@@ -10,25 +10,25 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Colori base */
-  --color-bg:        #eef2f7;
-  --color-surface:   #ffffff;
-  --color-surface-2: #f1f5f9;
-  --color-border:    rgba(0, 0, 0, 0.09);
+  --color-bg:        #0f172a;
+  --color-surface:   #1e293b;
+  --color-surface-2: #273549;
+  --color-border:    rgba(255, 255, 255, 0.08);
 
   /* Accenti */
-  --color-accent:   #2563eb;
-  --color-accent-2: #1d4ed8;
-  --color-accent-3: #0284c7;
+  --color-accent:   #3b82f6;
+  --color-accent-2: #60a5fa;
+  --color-accent-3: #38bdf8;
   --color-pink:     #ec4899;
 
   /* Gradiente principale */
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-  --gradient-cyan:    linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-  --gradient-text:    linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
+  --gradient-cyan:    linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
+  --gradient-text:    linear-gradient(135deg, #3b82f6 0%, #38bdf8 100%);
 
   /* Testo */
-  --color-text:       #1e293b;
-  --color-text-muted: #64748b;
+  --color-text:       #f1f5f9;
+  --color-text-muted: #94a3b8;
 
   /* Tipografia */
   --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -53,11 +53,11 @@
   --radius-full: 9999px;
 
   /* Shadows / Glow */
-  --glow-violet:  0 0 30px rgba(37, 99, 235, 0.2);
-  --glow-pink:    0 0 30px rgba(2, 132, 199, 0.2);
-  --glow-cyan:    0 0 30px rgba(2, 132, 199, 0.2);
-  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.08);
-  --shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.05);
+  --glow-violet:  0 0 30px rgba(59, 130, 246, 0.25);
+  --glow-pink:    0 0 30px rgba(56, 189, 248, 0.2);
+  --glow-cyan:    0 0 30px rgba(56, 189, 248, 0.2);
+  --shadow-card:  0 4px 32px rgba(0, 0, 0, 0.4);
+  --shadow-sm:    0 2px 12px rgba(0, 0, 0, 0.3);
 
   /* Easing */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

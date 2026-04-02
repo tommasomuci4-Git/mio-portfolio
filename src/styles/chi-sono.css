@@ -72,6 +72,38 @@
   flex-shrink: 0;
 }
 
+/* ─── Stats ─── */
+.chi-sono__stats {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.chi-sono__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.chi-sono__stat-num {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.chi-sono__stat-label {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+
 /* ─── Desktop ─── */
 @media (min-width: 768px) {
   .chi-sono__inner {
