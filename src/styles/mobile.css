@@ -69,24 +69,34 @@ p a, li a { min-height: unset; }
 }
 
 /* ════════════════════════════════
-   NAVBAR — mobile refinements
+   NAVBAR — mobile: link inline, no hamburger
    ════════════════════════════════ */
 @media (max-width: 767px) {
   .navbar__inner {
     padding-inline: var(--space-md);
+    gap: var(--space-sm);
   }
 
+  /* Logo più compatto */
   .navbar__logo {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
+    flex-shrink: 0;
   }
 
-  /* Menu mobile: link grandi e facili da toccare */
-  .navbar__mobile-link {
-    padding-block: var(--space-md);
-    font-size: 1.15rem;
-    min-height: 52px;
-    display: flex;
-    align-items: center;
+  /* Link ridotti per stare in una riga */
+  .navbar__links {
+    gap: 0;
+  }
+
+  .navbar__link {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* CTA "Parliamo" nascosto su mobile — i link bastano */
+  .navbar__cta {
+    display: none;
   }
 }
 
