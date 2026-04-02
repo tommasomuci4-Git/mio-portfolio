@@ -75,6 +75,7 @@
 /* ─── Desktop ─── */
 @media (min-width: 768px) {
   .chi-sono__inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
+    max-width: 72ch;
   }
 }

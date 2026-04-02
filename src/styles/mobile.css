@@ -39,7 +39,6 @@ p a, li a { min-height: unset; }
   /* Avatar più piccolo su mobile */
   .hero__avatar-wrap {
     width: min(220px, 65vw);
-    height: min(220px, 65vw);
   }
 
   .hero__greeting {
@@ -60,14 +59,14 @@ p a, li a { min-height: unset; }
     width: 100%;
   }
 
-  .hero__badge {
-    font-size: 0.7rem;
-    right: -4px;
-    bottom: 8px;
-    padding: var(--space-xs) var(--space-sm);
+  /* Card specializzazioni: riga su mobile */
+  .hero__cards {
+    flex-direction: column;
+    align-items: stretch;
   }
-
-  .hero__scroll { display: none; }
+  .hero__card {
+    min-width: unset;
+  }
 }
 
 /* ════════════════════════════════
@@ -121,69 +120,8 @@ p a, li a { min-height: unset; }
     grid-template-columns: 1fr;
   }
 
-  /* Vignetta: centrata sotto il testo su mobile */
-  .chi-sono__inner .vignette {
-    margin-inline: auto;
-    display: flex;
-  }
-
   .chi-sono__text p {
     font-size: 0.97rem;
-  }
-}
-
-/* ════════════════════════════════
-   COSA FACCIO — mobile
-   ════════════════════════════════ */
-@media (max-width: 639px) {
-  .cosa-faccio__card {
-    padding: var(--space-lg);
-  }
-}
-
-/* ════════════════════════════════
-   SKILLS — mobile
-   ════════════════════════════════ */
-@media (max-width: 767px) {
-  .skills__grid {
-    gap: var(--space-sm);
-  }
-  .skills__item {
-    min-width: 84px;
-    padding: var(--space-md) var(--space-lg);
-  }
-  .skills__icon i { font-size: 2rem; }
-}
-
-/* ════════════════════════════════
-   TIMELINE — mobile
-   ════════════════════════════════ */
-@media (max-width: 767px) {
-  .timeline__bg { display: none; }  /* SVG decorativo nascosto su mobile piccolo */
-
-  .timeline__item {
-    gap: var(--space-md);
-    padding-bottom: var(--space-xl);
-  }
-
-  .timeline__dot {
-    width: 48px;
-    height: 48px;
-    font-size: 1.3rem;
-  }
-
-  .timeline__item::before {
-    left: 22px;
-    top: 50px;
-  }
-
-  .timeline__card {
-    padding: var(--space-md) var(--space-lg);
-    box-shadow: 4px 4px 0 #000;
-  }
-
-  .timeline__title {
-    font-size: 1.1rem;
   }
 }
 
@@ -203,39 +141,6 @@ p a, li a { min-height: unset; }
   }
 }
 
-/* ════════════════════════════════
-   BLOG — mobile
-   ════════════════════════════════ */
-@media (max-width: 767px) {
-  .blog-card {
-    padding: var(--space-lg);
-  }
-}
-
-/* ════════════════════════════════
-   CURIOSITÀ — mobile
-   ════════════════════════════════ */
-@media (max-width: 639px) {
-  .curiosita__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-  }
-  .curiosita__card {
-    padding: var(--space-md);
-  }
-  .curiosita__emoji { font-size: 2.2rem; }
-  .curiosita__text  { font-size: 0.88rem; }
-}
-
-/* ════════════════════════════════
-   OBIETTIVI — mobile
-   ════════════════════════════════ */
-@media (max-width: 767px) {
-  /* Nasconde vignetta lampadina su mobile per non occupare spazio */
-  #obiettivi .vignette {
-    display: none;
-  }
-}
 
 /* ════════════════════════════════
    CONTATTI — mobile
@@ -254,11 +159,6 @@ p a, li a { min-height: unset; }
     width: 100%;
     justify-content: center;
   }
-
-  /* Vignetta telefono: centrata su mobile */
-  #contatti .vignette {
-    margin-inline: auto;
-  }
 }
 
 /* ════════════════════════════════
@@ -271,20 +171,6 @@ p a, li a { min-height: unset; }
   }
 }
 
-/* ════════════════════════════════
-   VIGNETTE — touch device
-   ════════════════════════════════ */
-@media (hover: none) {
-  /* Su dispositivi touch non c'è hover, le vignette sono più piccole */
-  .vignette {
-    transform: none !important;
-  }
-  /* Mostriamo la label sempre visibile su touch */
-  .vignette__label {
-    opacity: 0.7;
-    transform: none;
-  }
-}
 
 /* ════════════════════════════════
    SAFE AREA — iPhone notch / Dynamic Island
