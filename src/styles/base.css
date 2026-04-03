@@ -98,6 +98,7 @@ body {
   background-repeat: repeat-y;
   background-size: 100vw auto;
   background-position: top center;
+  background-color: #000;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -111,7 +112,17 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.88);
+}
+
+/* ─── Desktop: cover senza ripetizioni ─── */
+@media (min-width: 768px) {
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
 }
 
 img, svg, video {
