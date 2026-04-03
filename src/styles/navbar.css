@@ -75,7 +75,7 @@
 .navbar__link:hover,
 .navbar__link--active {
   color: var(--color-text);
-  background-color: rgba(245, 158, 11, 0.12);
+  background-color: rgba(52, 211, 153, 0.12);
 }
 
 .navbar__link--active {
