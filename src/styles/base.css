@@ -105,12 +105,13 @@ body {
 body::after {
   content: '';
   position: fixed;
-  inset: 0;
+  inset: -20px;
   pointer-events: none;
   z-index: -2;
   background-image: url('/maculato.webp');
   background-size: cover;
   background-position: center center;
+  filter: blur(3px);
 }
 
 /* ─── Overlay scuro su sfondo maculato ─── */
