@@ -324,6 +324,12 @@
   .hero__cards {
     align-items: flex-start;
   }
+
+  /* Rimuove i glow radiali gialli di sfondo su desktop */
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
 }
 
 /* ─── Tablet: 2 colonne ─── */
