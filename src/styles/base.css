@@ -120,12 +120,21 @@ body::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.96);
   z-index: 0;
   pointer-events: none;
-  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .watermark-cover {
+    top: 52%;
+    left: 54%;
+  }
 }
 
 /* ─── Overlay scuro su sfondo maculato ─── */
