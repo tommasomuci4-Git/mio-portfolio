@@ -99,18 +99,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Pattern leopardo (tema ambra) ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.22;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><g fill='%23b06800'><ellipse cx='130' cy='82' rx='18' ry='11' transform='rotate(-20 130 82)'/><ellipse cx='158' cy='100' rx='14' ry='9' transform='rotate(35 158 100)'/><ellipse cx='148' cy='132' rx='17' ry='10' transform='rotate(10 148 132)'/><ellipse cx='108' cy='128' rx='14' ry='9' transform='rotate(-20 108 128)'/><ellipse cx='96' cy='100' rx='15' ry='9' transform='rotate(-40 96 100)'/><ellipse cx='388' cy='48' rx='17' ry='10' transform='rotate(20 388 48)'/><ellipse cx='414' cy='72' rx='13' ry='8' transform='rotate(50 414 72)'/><ellipse cx='402' cy='100' rx='16' ry='10' transform='rotate(5 402 100)'/><ellipse cx='366' cy='94' rx='14' ry='9' transform='rotate(-30 366 94)'/><ellipse cx='518' cy='222' rx='16' ry='10' transform='rotate(-10 518 222)'/><ellipse cx='548' cy='244' rx='14' ry='9' transform='rotate(40 548 244)'/><ellipse cx='542' cy='275' rx='17' ry='10' transform='rotate(15 542 275)'/><ellipse cx='510' cy='278' rx='13' ry='8' transform='rotate(-15 510 278)'/><ellipse cx='496' cy='252' rx='15' ry='9' transform='rotate(-35 496 252)'/><ellipse cx='88' cy='334' rx='15' ry='10' transform='rotate(25 88 334)'/><ellipse cx='118' cy='354' rx='13' ry='8' transform='rotate(55 118 354)'/><ellipse cx='108' cy='383' rx='16' ry='10' transform='rotate(-5 108 383)'/><ellipse cx='70' cy='378' rx='14' ry='9' transform='rotate(-25 70 378)'/><ellipse cx='298' cy='403' rx='18' ry='11' transform='rotate(-15 298 403)'/><ellipse cx='328' cy='422' rx='14' ry='9' transform='rotate(30 328 422)'/><ellipse cx='320' cy='455' rx='17' ry='10' transform='rotate(8 320 455)'/><ellipse cx='280' cy='450' rx='15' ry='9' transform='rotate(-20 280 450)'/><ellipse cx='270' cy='422' rx='14' ry='9' transform='rotate(-40 270 422)'/><ellipse cx='528' cy='505' rx='16' ry='10' transform='rotate(10 528 505)'/><ellipse cx='556' cy='526' rx='13' ry='8' transform='rotate(45 556 526)'/><ellipse cx='546' cy='556' rx='15' ry='10' transform='rotate(-5 546 556)'/><ellipse cx='510' cy='550' rx='14' ry='9' transform='rotate(-28 510 550)'/><ellipse cx='178' cy='528' rx='17' ry='10' transform='rotate(-22 178 528)'/><ellipse cx='206' cy='548' rx='14' ry='9' transform='rotate(32 206 548)'/><ellipse cx='196' cy='578' rx='16' ry='10' transform='rotate(8 196 578)'/><ellipse cx='158' cy='572' rx='13' ry='8' transform='rotate(-18 158 572)'/><ellipse cx='148' cy='546' rx='15' ry='9' transform='rotate(-38 148 546)'/></g></svg>");
-  background-size: 600px 600px;
-  background-repeat: repeat;
-}
 
 img, svg, video {
   display: block;
