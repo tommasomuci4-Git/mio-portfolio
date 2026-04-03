@@ -82,7 +82,7 @@ export function initCursor() {
     function animateGlow() {
       glowX += (glowTargetX - glowX) * 0.06
       glowY += (glowTargetY - glowY) * 0.06
-      glow.style.background = `radial-gradient(700px circle at ${glowX}px ${glowY}px, rgba(59,130,246,0.13) 0%, transparent 70%)`
+      glow.style.background = `radial-gradient(320px circle at ${glowX}px ${glowY}px, rgba(52,211,153,0.1) 0%, transparent 70%)`
       requestAnimationFrame(animateGlow)
     }
     animateGlow()
