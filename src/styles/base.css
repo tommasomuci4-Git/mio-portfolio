@@ -134,6 +134,9 @@ body::after {
   .watermark-cover {
     top: 52%;
     left: 54%;
+    font-size: 1.1rem;
+    letter-spacing: 0.35em;
+    color: rgba(245, 158, 11, 0.35);
   }
 }
 
