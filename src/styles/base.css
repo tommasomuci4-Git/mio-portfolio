@@ -94,6 +94,9 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: url('/maculato.webp');
+  background-repeat: repeat;
+  background-size: 600px auto;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
