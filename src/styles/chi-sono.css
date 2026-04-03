@@ -27,16 +27,10 @@
   justify-content: center;
 }
 
-.chi-sono__photo img,
-.chi-sono__photo-placeholder {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-}
-
 .chi-sono__photo img {
-  object-fit: cover;
-  box-shadow: 0 0 0 3px var(--color-accent), var(--glow-violet);
+  width: 280px;
+  height: auto;
+  filter: drop-shadow(0 8px 32px rgba(245, 158, 11, 0.25));
 }
 
 .chi-sono__photo-placeholder {
