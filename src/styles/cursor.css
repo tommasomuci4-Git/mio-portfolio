@@ -34,7 +34,7 @@
 .cursor__ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(52, 211, 153, 0.5);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
   border-radius: 50%;
   margin-left: -18px;
   margin-top: -18px;
@@ -53,7 +53,7 @@
   margin-left: -28px;
   margin-top: -28px;
   border-color: var(--color-accent);
-  background: rgba(52, 211, 153, 0.06);
+  background: rgba(245, 158, 11, 0.06);
 }
 .cursor__dot--hover {
   transform: scale(0) !important;
@@ -84,7 +84,7 @@
   background: var(--gradient-primary);
   z-index: 9998;
   transition: width 0.1s linear;
-  box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
 /* ─── Particles canvas ─── */
