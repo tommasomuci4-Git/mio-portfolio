@@ -114,6 +114,20 @@ body::after {
   filter: blur(3px);
 }
 
+/* ─── Copertura filigrana ─── */
+.watermark-cover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
 /* ─── Overlay scuro su sfondo maculato ─── */
 body::before {
   content: '';
