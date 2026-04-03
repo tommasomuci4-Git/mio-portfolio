@@ -10,7 +10,7 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Colori base */
-  --color-bg:        #080808;
+  --color-bg:        #000000;
   --color-surface:   #141414;
   --color-surface-2: #1f1f1f;
   --color-border:    rgba(255, 255, 255, 0.1);
@@ -106,9 +106,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.06;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500'><filter id='f'><feTurbulence type='turbulence' baseFrequency='0.055' numOctaves='4' seed='8'/><feColorMatrix type='matrix' values='0 0 0 0 0.96  0 0 0 0 0.62  0 0 0 0 0.04  0 0 0 22 -9'/></filter><rect width='500' height='500' filter='url(%23f)'/></svg>");
-  background-size: 500px 500px;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='800'><filter id='f' color-interpolation-filters='sRGB'><feTurbulence type='turbulence' baseFrequency='0.022 0.018' numOctaves='3' seed='14'/><feColorMatrix type='matrix' values='0 0 0 0 0.98  0 0 0 0 0.65  0 0 0 0 0.02  0 0 0 38 -16'/></filter><rect width='800' height='800' filter='url(%23f)'/></svg>");
+  background-size: 800px 800px;
   background-repeat: repeat;
 }
 
