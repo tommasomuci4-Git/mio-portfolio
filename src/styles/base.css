@@ -114,6 +114,14 @@ body::after {
   filter: blur(3px);
 }
 
+@media (min-width: 1024px) {
+  body::after {
+    background-size: 110vh auto;
+    background-repeat: repeat-x;
+    filter: blur(2px);
+  }
+}
+
 /* ─── Copertura filigrana ─── */
 .watermark-cover {
   position: fixed;
