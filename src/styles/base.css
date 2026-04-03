@@ -95,13 +95,25 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   background-image: url('/maculato.webp');
-  background-repeat: repeat;
-  background-size: 600px auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* ─── Overlay scuro su sfondo maculato ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.82);
+}
 
 img, svg, video {
   display: block;
