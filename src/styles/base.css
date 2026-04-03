@@ -112,17 +112,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: rgba(0, 0, 0, 0.88);
-}
-
-/* ─── Desktop: cover senza ripetizioni ─── */
-@media (min-width: 768px) {
-  body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-  }
+  background: rgba(0, 0, 0, 0.78);
 }
 
 img, svg, video {
