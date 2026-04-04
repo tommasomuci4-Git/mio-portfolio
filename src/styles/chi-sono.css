@@ -21,31 +21,62 @@
   }
 }
 
-/* ─── Foto circolare ─── */
-.chi-sono__photo {
-  display: flex;
-  justify-content: center;
+/* ─── Collage foto + video ─── */
+.chi-sono__collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+  width: 100%;
 }
 
-.chi-sono__photo img {
-  width: 280px;
-  height: auto;
-  filter: drop-shadow(0 8px 32px rgba(245, 158, 11, 0.25));
+.chi-sono__media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.5);
 }
 
-.chi-sono__photo-placeholder {
-  background: var(--color-surface-2);
+.chi-sono__media:first-child {
+  transform: rotate(-2.5deg);
+  margin-top: 16px;
+}
+
+.chi-sono__media:last-child {
+  transform: rotate(1.5deg);
+}
+
+.chi-sono__media img,
+.chi-sono__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Annotation freccia → video */
+.chi-sono__annotation {
+  grid-column: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  box-shadow: 0 0 0 3px var(--color-accent), var(--glow-violet);
+  padding-top: var(--space-xs);
+  color: var(--color-accent);
+}
+
+.chi-sono__annotation svg {
+  width: 32px;
+  height: 24px;
+  margin-bottom: 2px;
+}
+
+.chi-sono__annotation p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
 }
 
 /* ─── Bio testo ─── */
