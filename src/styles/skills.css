@@ -6,14 +6,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
-  max-width: 700px;
+  max-width: 600px;
   margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .skills__grid {
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;
   }
 }
 
@@ -44,15 +44,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transition: filter var(--duration-base);
+}
+.skills__icon-wrap img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
 }
 .skills__item:hover .skills__icon-wrap {
   filter: drop-shadow(0 0 8px var(--color-accent));
 }
 
 .skills__icon-wrap--text {
-  font-size: 2.4rem;
-  line-height: 1;
+  font-size: 2.8rem;
+  line-height: 56px;
 }
 
 .skills__name {
