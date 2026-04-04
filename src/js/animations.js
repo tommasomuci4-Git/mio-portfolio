@@ -88,12 +88,8 @@ export function initAnimations() {
     },
   });
 
-  // ─── Obiettivi: slide da sinistra ───
-  fadeUp('.obiettivi__item', {
-    stagger: 0.15,
-    gsap: { x: -20, y: 0 },
-    scrollTrigger: { start: 'top 90%' },
-  });
+  // ─── Obiettivi ───
+  fadeUp('.obiettivi__item', { stagger: 0.15 });
 
   // ─── Sezioni header generici ───
   fadeUp('.section__label');
