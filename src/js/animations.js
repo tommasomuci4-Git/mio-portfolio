@@ -89,7 +89,7 @@ export function initAnimations() {
   });
 
   // ─── Obiettivi: slide da sinistra ───
-  fadeUp('.obiettivo', {
+  fadeUp('.obiettivi__item', {
     stagger: 0.15,
     gsap: { x: -20, y: 0 },
     scrollTrigger: { start: 'top 90%' },
