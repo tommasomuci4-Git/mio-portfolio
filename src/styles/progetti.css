@@ -22,8 +22,8 @@
 }
 .progetto:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 /* Immagine con overlay */
@@ -61,7 +61,8 @@
   align-items: center;
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-lg);
-  background: var(--gradient-primary);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
@@ -94,10 +95,10 @@
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   padding: 2px var(--space-sm);
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-full);
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .progetto__title {
@@ -128,7 +129,7 @@
   gap: var(--space-xs);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: gap var(--duration-fast), color var(--duration-fast);
   margin-top: var(--space-sm);
@@ -136,7 +137,7 @@
 }
 .progetto__link:hover {
   gap: var(--space-sm);
-  color: var(--color-pink);
+  color: var(--color-text);
 }
 
 /* Placeholder "coming soon" */
