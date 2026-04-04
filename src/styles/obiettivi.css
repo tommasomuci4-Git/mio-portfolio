@@ -39,7 +39,7 @@
 }
 .obiettivi__item:hover {
   border-color: var(--color-accent);
-  transform: translateX(6px);
+  transform: translateY(-2px);
 }
 
 .obiettivi__check {
@@ -48,10 +48,6 @@
   color: var(--color-accent);
   flex-shrink: 0;
   padding-top: 2px;
-  transition: transform var(--duration-fast);
-}
-.obiettivi__item:hover .obiettivi__check {
-  transform: translateX(4px);
 }
 
 .obiettivi__item-body {
