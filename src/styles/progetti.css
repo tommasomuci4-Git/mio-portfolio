@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
+  align-items: stretch;
 }
 
 /* ─── Card progetto ─── */
@@ -13,6 +14,16 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 100%;
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base),
+    box-shadow var(--duration-base);
+}
+.progetto:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.18);
 }
 
 /* Immagine con overlay */
@@ -94,6 +105,10 @@
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
+  transition: color var(--duration-fast);
+}
+.progetto:hover .progetto__title {
+  color: var(--color-accent);
 }
 
 .progetto__desc {
@@ -101,6 +116,10 @@
   color: var(--color-text-muted);
   line-height: 1.6;
   flex: 1;
+  transition: color var(--duration-fast);
+}
+.progetto:hover .progetto__desc {
+  color: var(--color-text);
 }
 
 .progetto__link {
