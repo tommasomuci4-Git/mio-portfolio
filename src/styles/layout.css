@@ -141,11 +141,7 @@
   margin-top: var(--space-md);
 }
 
-/* ─── Elementi invisibili pre-animazione GSAP ─── */
-.js-fade {
-  opacity: 0;
-  transform: translateY(30px);
-}
+/* .js-fade rimosso — GSAP gestisce opacity/transform iniziali inline */
 
 /* ─── Responsive ─── */
 @media (min-width: 768px) {
