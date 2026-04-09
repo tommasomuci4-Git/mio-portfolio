@@ -85,7 +85,7 @@
 /* ─── CTA button desktop ─── */
 .navbar__cta {
   display: none;
-  margin-left: var(--space-md);
+  margin-left: var(--space-xs);
   padding: 0.5rem 1.2rem;
   font-size: 0.88rem;
   min-height: 40px;
