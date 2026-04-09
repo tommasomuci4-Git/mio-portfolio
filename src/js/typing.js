@@ -16,7 +16,7 @@ export function initTyping() {
     'web developer freelance.',
     'builder digitale.',
     'gestore di case vacanze.',
-    'persona curiosa.',
+    'appassionato di AI & automazione.',
   ]
 
   let phraseIndex = 0
