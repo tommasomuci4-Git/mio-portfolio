@@ -8,14 +8,14 @@ export function initTyping() {
 
   // Salta se reduced-motion attivo
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    el.textContent = 'gestore di case vacanze.'
+    el.textContent = 'web developer freelance.'
     return
   }
 
   const phrases = [
-    'gestore di case vacanze.',
+    'web developer freelance.',
     'builder digitale.',
-    'futuro fisioterapista.',
+    'gestore di case vacanze.',
     'persona curiosa.',
   ]
 
