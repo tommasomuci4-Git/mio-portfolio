@@ -1,77 +1,54 @@
 # Subagent: Reviewer
 
 **Tipo:** `Plan`
-**Posizione nel pipeline:** 2° — DOPO che il file è stato scritto, prima del QA.
-**Trigger:** file grande/complesso o file medio (vedi tabella sotto).
+**Posizione nel pipeline:** 2° — DOPO che il componente è stato scritto, prima del QA.
 
-## Pipeline completo
+## Pipeline
 ```
-Researcher → [Reviewer ← sei qui] → QA → ✅ File pronto
+Researcher → [Reviewer ← sei qui] → QA → ✅ Componente pronto
 ```
-
-## Quando usarlo
-| Situazione | Usare Reviewer? |
-|---|---|
-| File grande/complesso (hero, timeline, vignette, index.html) | Sì |
-| File medio (CSS sezione, modulo JS) | Sì |
-| Fix semplice (colore, testo, spacing) | No — vai diretto al QA |
-
-## Scopo
-Verificare che il file rispetti tutte le convenzioni e regole del progetto.
-Non suggerisce miglioramenti fuori scope — segnala solo violazioni reali.
 
 ## Checklist obbligatoria
 
-### CSS
-- [ ] Usa token da `--color-*`, `--space-*`, `--font-*`, ecc. — nessun valore hardcoded
-- [ ] Naming BEM-lite: `.sezione__elemento--modificatore`
-- [ ] Mobile-first: breakpoint con `min-width`, non `max-width`
-- [ ] `prefers-reduced-motion` rispettato per ogni animazione/transition
-- [ ] Nessun `!important` non giustificato
-- [ ] Nessun colore/font scritto direttamente (es. `color: #fff` → `color: var(--color-text)`)
-- [ ] Glass card usa `backdrop-filter` + `border: 1px solid var(--color-border)`
-- [ ] Gradient border usa pseudo-element `::before` (pattern in `.claude/03-design-system.md`)
+### React
+- [ ] Nessun prop inutilizzato
+- [ ] `key` presente su tutti i `.map()`
+- [ ] `useEffect` con dependency array corretto
+- [ ] Nessun `useEffect` per cose che si possono calcolare direttamente
+- [ ] Nomi componenti in PascalCase, funzioni/variabili in camelCase
 
-### JavaScript
-- [ ] Ogni file esporta una funzione `initNomeModulo()`
-- [ ] Nessun `document.write`, `eval`, o `innerHTML` con dati utente non sanitizzati
-- [ ] Event listener aggiunti su elementi che esistono (controllare se null prima)
-- [ ] GSAP importato da `gsap` e `gsap/ScrollTrigger` (non CDN)
-- [ ] `once: true` su tutti i ScrollTrigger (non si ri-triggera su scroll-up)
+### Tailwind + Dark Mode
+- [ ] Ogni elemento visivo ha la coppia `text-*` + `dark:text-*`
+- [ ] Ogni sfondo ha la coppia `bg-*` + `dark:bg-*`
+- [ ] Nessun colore hardcoded inline (no `style={{ color: '#fff' }}`)
+- [ ] Classi responsive presenti dove necessario (`md:`, `lg:`)
 
-### HTML (solo se il file è index.html)
-- [ ] Ogni sezione ha `id` corrispondente al link navbar
-- [ ] Headings gerarchici (un solo `<h1>`, poi `<h2>`, poi `<h3>`)
-- [ ] Attributi `alt` su tutte le `<img>`
-- [ ] `lang="it"` sull'elemento `<html>`
-- [ ] Font preconnect in `<head>` prima del link Google Fonts
-- [ ] Meta description presente
-- [ ] Open Graph tags presenti
+### Accessibilità
+- [ ] `alt` su tutte le `<img>`
+- [ ] `aria-label` su bottoni icon-only
+- [ ] `<section>` ha `id` corrispondente al link navbar
+- [ ] Heading gerarchici corretti (nessun salto da h2 a h4)
 
-### Contenuti
-- [ ] Testi allineati a `.claude/04-content.md`
-- [ ] Dati personali corretti (nome: Tommaso Muci, email, GitHub, Instagram)
-- [ ] Nessun testo in inglese dove non previsto
+### Animazioni (Framer Motion)
+- [ ] `prefers-reduced-motion` rispettato (usa `useReducedMotion()`)
+- [ ] Nessuna animazione che blocca l'interazione utente
+
+### Contenuto
+- [ ] Testi in italiano (salvo sezioni con label in inglese tipo "About", "Skills")
+- [ ] Dati personali corretti (nome: Tommaso Muci, email: tommasomuci4@gmail.com)
+- [ ] Nessun testo placeholder rimasto nel componente finale
 
 ## Prompt template
 ```
-Sei un agente Reviewer per il portfolio di Tommaso Muci.
-Progetto: c:/Users/samu-/OneDrive/Desktop/mio-portfolio
+Sei un agente Reviewer per il portfolio React di Tommaso Muci.
 
-Revisiona il file: [NOME FILE]
-[INCOLLA CONTENUTO DEL FILE]
+Revisiona il componente: [NOME FILE]
+[INCOLLA IL CODICE]
 
 Controlla la checklist in .claude/subagents/reviewer.md.
-Regole CSS: .claude/06-css-conventions.md
-Regole animazioni: .claude/07-animations.md
-
-Riporta SOLO i problemi trovati con: riga, problema, fix suggerito.
-Se tutto è corretto, scrivi: "✅ Nessun problema trovato."
+Riporta SOLO i problemi trovati: riga, problema, fix suggerito.
+Se tutto è corretto: "✅ Nessun problema trovato."
 ```
 
-## Output atteso
-- `Riga X — [problema] → [fix]`
-- Oppure: `✅ Nessun problema trovato.`
-
 ## Prossimo step
-Passa l'output (e il file corretto) al **QA** → `.claude/subagents/qa.md`
+Passa l'output al **QA** → `.claude/subagents/qa.md`
